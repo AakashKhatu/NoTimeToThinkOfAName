@@ -1,0 +1,7 @@
+{
+  "name": "accl",
+  "displayName": "Accelerometer Test with Graphing.",
+  "expo": {
+    "sdkVersion": "33.0.0"
+  }
+}
