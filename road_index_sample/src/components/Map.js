@@ -20,7 +20,7 @@ class Map extends Component {
         this.map = null;
 
         this.state = {
-            theme: 'normal.night',
+            theme: 'normal.day',
             place1: '',
             place2: '',
             lat:  18.96203663,
@@ -198,8 +198,11 @@ class Map extends Component {
             apikey: 'nRRAG5km5PvmILTSRs7gZeZhi7EkjLtZiu3MU8cZks',
             app_id: 'X8kyodr5TEFD79Uyl3dY',
             app_code: 'yglhnJ9JPDlsr9Rm6mQktA',
-            })
-    
+            });
+
+        
+        
+        
         const layers = this.platform.createDefaultLayers();
         this.map = new window.H.Map(
             document.getElementById('map'),
@@ -213,6 +216,12 @@ class Map extends Component {
         const events = new window.H.mapevents.MapEvents(this.map);
         const behavior = new window.H.mapevents.Behavior(events);
         const ui = window.H.ui.UI.createDefault(this.map, layers);
+        
+        const today = new Date();
+        const hours = today.getHours();
+        console.log(hours)
+        
+        if (hours > 18) this.toggleTheme();
 
         this.calculateRouteFromAtoB();
     }
